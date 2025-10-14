@@ -1,0 +1,12 @@
+.nav-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+/* #region my header*/
+.nav-logo:hover {
+  background-color: rgb(108, 140, 255);
+  border-radius: 8px;
+  box-shadow: inset #fff3 8px 8px 18px 5px,
+    inset hsla(0, 0%, 0%, 0.502) -8px -8px 18px 5px;
+}
