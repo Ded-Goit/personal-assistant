@@ -1,13 +1,9 @@
 import { fetchGitHubRepo, GitHubProject } from "@/lib/github";
 import ProjectCard from "@/components/ProjectCard/ProjectCard";
 import styles from "./projects.module.css";
+import { repositories } from "@/constant/repo";
 
 export default async function ProjectsPage() {
-  const repositories = [
-    { owner: "Ded-Goit", repo: "03-react-movies" },
-    { owner: "Ded-Goit", repo: "06-notehub-nextjs" },
-  ];
-
   const projects: GitHubProject[] = await Promise.all(
     repositories.map(async ({ owner, repo }) => fetchGitHubRepo(owner, repo))
   );
