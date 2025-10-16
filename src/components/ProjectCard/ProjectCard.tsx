@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo } from "react";
+import { useEffect, useState, useMemo } from "react";
 import styles from "./ProjectCard.module.css";
 import { GitHubProject } from "@/lib/github";
 
@@ -10,15 +10,20 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ project }: ProjectCardProps) {
-  const formattedDate = useMemo(() => {
-    if (!project.updated_at) return "";
-    try {
-      return new Date(project.updated_at).toLocaleDateString();
-    } catch {
-      return project.updated_at;
+  // Форматуємо дату лише на клієнті
+  const [formattedDate, setFormattedDate] = useState<string>("");
+
+  useEffect(() => {
+    if (project.updated_at) {
+      try {
+        setFormattedDate(new Date(project.updated_at).toLocaleDateString());
+      } catch {
+        setFormattedDate(project.updated_at);
+      }
     }
   }, [project.updated_at]);
 
+  // Форматуємо прев’ю README
   const readmePreview = useMemo(() => {
     if (!project.readme) return "No README available.";
     return (
@@ -35,8 +40,11 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         )}
       </header>
 
+      {/* suppressHydrationWarning прибирає можливий mismatch */}
       {formattedDate && (
-        <p className={styles.updated}>Last updated: {formattedDate}</p>
+        <p className={styles.updated} suppressHydrationWarning>
+          Last updated: {formattedDate}
+        </p>
       )}
 
       <div className={styles.links}>
@@ -51,9 +59,10 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         )}
       </div>
 
-      <details className={styles.readme}>
+      {/* suppressHydrationWarning усуває різницю між SSR і клієнтом у <details> */}
+      <details className={styles.readme} suppressHydrationWarning>
         <summary>README Preview</summary>
-        <pre suppressHydrationWarning>{readmePreview}</pre>
+        <pre>{readmePreview}</pre>
       </details>
     </article>
   );
