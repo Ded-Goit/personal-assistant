@@ -7,7 +7,7 @@
   --container-max: 1440px;
 
   /* Font */
-  --font-family-base: var(--font-lato-google), system-ui, sans-serif;
+  --font-family-base: "Lato", system-ui, sans-serif;
   --font-size-base: 16px;
   --font-weight-regular: 400;
   --font-weight-bold: 700;
@@ -23,7 +23,7 @@
   --transition-fast: 0.25s ease-in-out;
   --transition-slow: 0.4s ease;
 
-  /* Default (light) colors */
+  /* Colors — light mode */
   --color-bg-primary: #ffffff;
   --color-bg-secondary: #f5f6fa;
   --color-bg-tertiary: #ededf1;
@@ -34,12 +34,10 @@
   --color-accent-hover: #4d47d5;
   --color-border: rgba(0, 0, 0, 0.1);
   --color-overlay: rgba(0, 0, 0, 0.05);
-  --box-shadow:  rgba(0, 0, 0, 0.7);
-  --color-social: #6ab1d7;
-  
-  /* Selection */
   --color-selection-text: #fff;
   --color-selection-bg: #6c63ff;
+  --color-social: #6ab1d7;
+  --box-shadow: rgba(0, 0, 0, 0.7);
 
   color-scheme: light;
 }
@@ -58,25 +56,27 @@
   --color-accent-hover: #a29dff;
   --color-border: rgba(255, 255, 255, 0.1);
   --color-overlay: rgba(255, 255, 255, 0.06);
-  --box-shadow:  rgba(255, 255, 255, 0.7);
-
-  --color-selection-text: #fff;
   --color-selection-bg: color-mix(in lch, var(--color-accent), black 10%);
+  --box-shadow: rgba(255, 255, 255, 0.7);
 }
 
 /* ========= GLOBAL BASE ========= */
-html,
+html {
+  font-size: var(--font-size-base);
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: var(--font-family-base);
-  font-size: var(--font-size-base);
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-base);
   background-color: var(--color-bg-primary);
   color: var(--color-text-primary);
   margin: 0;
   padding: 0;
-  scroll-behavior: smooth;
-  transition: background-color var(--transition-slow), color var(--transition-slow);
+  transition:
+    background-color var(--transition-slow),
+    color var(--transition-slow);
 }
 
 ::selection {
@@ -84,21 +84,31 @@ body {
   color: var(--color-selection-text);
 }
 
-/* Containers */
+/* ========= CONTAINER ========= */
 .container {
   width: var(--container-width);
   max-width: var(--container-max);
   margin: 0 auto;
+  padding: 0 1rem;
 }
 
-/* Headings */
-h1, h2, h3, h4, h5 {
+/* ========= TYPOGRAPHY ========= */
+h1,
+h2,
+h3,
+h4,
+h5 {
   font-weight: var(--font-weight-bold);
   margin: 0 0 0.5em;
   line-height: 1.2;
+  color: var(--color-text-primary);
 }
 
-/* Links */
+p {
+  margin: 0 0 1em;
+  color: var(--color-text-secondary);
+}
+
 a {
   color: var(--color-accent);
   text-decoration: none;
@@ -109,7 +119,7 @@ a:hover {
   color: var(--color-accent-hover);
 }
 
-/* Buttons */
+/* ========= BUTTONS ========= */
 button {
   font-family: inherit;
   cursor: pointer;
@@ -119,37 +129,90 @@ button {
   font-weight: var(--font-weight-bold);
   border-radius: var(--radius);
   padding: 0.6em 1.2em;
-  transition: background var(--transition-fast);
+  transition:
+    background var(--transition-fast),
+    transform 0.15s ease;
 }
 
 button:hover {
   background: var(--color-accent-hover);
+  transform: translateY(-1px);
 }
 
-/* Images & layout */
+button:active {
+  transform: translateY(0);
+}
+
+/* ========= IMAGES ========= */
 img {
   display: block;
   max-width: 100%;
   height: auto;
+  border-radius: var(--radius);
+}
+
+/* ========= UTILS ========= */
+hr {
+  border: 0;
+  height: 1px;
+  background: var(--color-border);
+  margin: 2rem 0;
+}
+
+section {
+  padding: 4rem 0;
+}
+
+.text-center {
+  text-align: center;
 }
 
 /* ========= MEDIA QUERIES ========= */
-@media (min-width: 768px) {
+
+/* Мобільні */
+@media (max-width: 767px) {
+  .container {
+    width: 94%;
+    padding: 0 1rem;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  section {
+    padding: 2.5rem 0;
+  }
+}
+
+/* Планшети */
+@media (min-width: 768px) and (max-width: 1439px) {
   :root {
     --font-size-base: 17px;
   }
 
+  .container {
+    width: 90%;
+    max-width: 960px;
+  }
+
   h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 }
 
+/* Десктопи */
 @media (min-width: 1440px) {
   :root {
     --font-size-base: 18px;
   }
 
+  .container {
+    width: var(--container-width);
+    max-width: var(--container-max);
+  }
+
   h1 {
-    font-size: 2.5rem;
+    font-size: 2.6rem;
   }
 }
