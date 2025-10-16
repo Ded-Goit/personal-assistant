@@ -18,9 +18,9 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <Logo width={140} height={50} />
+        <Logo width={64} height={32} />
 
-        {/* Кнопка меню для мобільних */}
+        {/* Menu button for mobile */}
         <button
           className={styles.menuButton}
           onClick={toggleMenu}
@@ -29,7 +29,7 @@ export default function Header() {
           {menuOpen ? <HiX size={28} /> : <HiMenu size={28} />}
         </button>
 
-        {/* Навігація + перемикач теми */}
+        {/* Navigation + theme switcher */}
         <nav
           className={`${styles.nav} ${menuOpen ? styles.navOpen : ""}`}
           onClick={() => setMenuOpen(false)}

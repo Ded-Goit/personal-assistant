@@ -1,9 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import styles from './Footer.module.css';
-import { navLinks, subscribe } from '@/constant/constant';
+import { subscribe } from '@/constant/constant';
 import {
   RiLinkedinFill,
   RiTelegramFill,
@@ -13,35 +12,17 @@ import {
 } from 'react-icons/ri';
 import Logo from '@/Logo/Logoded';
 
-export default function Footer() {
-  const pathname = usePathname();
+export default function Footer() {  
 
   return (
     <footer className={styles.footer}>
-      <div className={styles.container}>
-        {/* Логотип */}
-        <div className={styles.logoWrapper}>
-          <Logo width={160} height={56} />
-        </div>
+      <div className={styles.container}>      
 
-        {/* Навігація та легал */}
+        {/* Logo and legal */}
         <div className={styles.linksWrapper}>
-          {/* Навігація */}
-          <div className={styles.navigation}>
-            <p className={styles.subtitle}>Navigation</p>
-            <nav>
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  aria-current={pathname === link.href ? 'page' : undefined}
-                  className={styles.navlink}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
-          </div>
+
+          {/* Logo */}
+          <Logo width={64} height={32} />        
 
           {/* Legal */}
           <div className={styles.navigation}>
@@ -59,7 +40,7 @@ export default function Footer() {
             </nav>
           </div>
 
-          {/* Соцмережі */}
+          {/* Social networks */}
           <div className={styles.navigation}>
             <p className={styles.subtitle}>Subscribe</p>
             <div className={styles.socials}>
@@ -118,7 +99,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Підвал */}
+      {/* footer */}
       <p className={styles.text}>
         &copy; {new Date().getFullYear()} Personal Assistant |{' '}
         <Link

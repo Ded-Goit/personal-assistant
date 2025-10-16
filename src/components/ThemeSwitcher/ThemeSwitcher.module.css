@@ -1,17 +1,53 @@
 .switcher {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  padding: 10px;
-  border-radius: 50%;
-  background-color: var(--color-accent);
-  color: #fff;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  z-index: 9999;
+  position: relative;
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--switch-border);
+  border-radius: 100px;
+  background: var(--switch-bg);
+  color: var(--switch-icon);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.2s ease,
+    box-shadow 0.3s ease;
+  box-shadow: 0 2px 6px var(--switch-shadow);
 }
 
 .switcher:hover {
-  background-color: #0055c9;
-  transform: scale(1.05);
+  transform: translateY(-1px) scale(1.04);
+  box-shadow: 0 4px 10px var(--switch-hover-shadow);
+}
+
+.switcher:active {
+  transform: scale(0.96);
+}
+
+
+/* ===== Icon ===== */
+.switcher :global(svg) {
+  width: 18px !important;
+  height: 18px !important;
+  flex-shrink: 0;
+  transition: transform 0.25s ease, color 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .switcher {
+    width: 32px;
+    height: 32px;
+  }  
+}
+
+/* ===== Disable touch effects ===== */
+@media (hover: none) {
+  .switcher:hover {
+    transform: none;
+    box-shadow: 0 2px 6px var(--switch-shadow);
+  }
 }
