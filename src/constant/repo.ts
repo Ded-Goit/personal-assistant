@@ -9,6 +9,11 @@ export const repositories = [
   { owner: "Nickolay1990", repo: "core-stack", name: "Second team work" },
   { owner: "Ded-Goit", repo: "stp_9268", name: "Third teamwork" },
   { owner: "Ded-Goit", repo: "project-pregnant", name: "Fourth teamwork" },
+  {
+    owner: "Nickolay1990",
+    repo: "project-pregnant-back",
+    name: "The first backend",
+  },
   { owner: "Ded-Goit", repo: "my-book-site", name: "Do it now" },
   { owner: "Ded-Goit", repo: "09-auth", name: " NoteHub refactoring" },
   { owner: "Ded-Goit", repo: "traveltrucks", name: "Travel Trucks" },
