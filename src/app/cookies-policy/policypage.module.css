@@ -1,0 +1,95 @@
+/* ========= Policy Pages Styles ========= */
+
+.policyPage {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+  transition:
+    background var(--transition-slow),
+    color var(--transition-slow);
+}
+
+.policyPage h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--color-text-primary);
+  text-align: center;
+}
+
+.policyPage h2 {
+  margin-top: 2rem;
+  font-size: 1.25rem;
+  color: var(--color-text-primary);
+}
+
+.policyPage p {
+  margin-bottom: 1rem;
+}
+
+.policyPage ul {
+  list-style: disc;
+  margin: 1rem 0 1rem 1.5rem;
+  padding: 0;
+}
+
+.policyPage li {
+  margin-bottom: 0.5rem;
+}
+
+/* ---- Links ---- */
+.policyPage a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.policyPage a:hover {
+  color: var(--color-accent-hover);
+  text-decoration: underline;
+}
+
+/* ---- Back link ---- */
+.backLink {
+  display: inline-block;
+  margin-top: 2rem;
+  color: var(--color-accent);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.backLink:hover {
+  color: var(--color-accent-hover);
+  text-decoration: underline;
+}
+
+/* ---- Divider ---- */
+.policyPage hr {
+  border: none;
+  height: 1px;
+  background: var(--color-border);
+  margin: 2rem 0;
+}
+
+/* ---- Responsive ---- */
+@media (min-width: 768px) {
+  .policyPage {
+    padding: 5rem 2rem;
+  }
+
+  .policyPage h1 {
+    font-size: 2.4rem;
+  }
+
+  .policyPage h2 {
+    font-size: 1.4rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .policyPage {
+    padding: 6rem 0;
+  }
+}
