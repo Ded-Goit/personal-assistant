@@ -10,7 +10,7 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ project }: ProjectCardProps) {
-  // Форматуємо дату лише на клієнті
+  // Format the date only on the client
   const [formattedDate, setFormattedDate] = useState<string>("");
 
   useEffect(() => {
@@ -23,7 +23,6 @@ export default function ProjectCard({ project }: ProjectCardProps) {
     }
   }, [project.updated_at]);
 
-  // Форматуємо прев’ю README
   const readmePreview = useMemo(() => {
     if (!project.readme) return "No README available.";
     return (
@@ -34,13 +33,11 @@ export default function ProjectCard({ project }: ProjectCardProps) {
   return (
     <article className={styles.card}>
       <header>
-        <h2>{project.name}</h2>
-        {project.description && (
-          <p className={styles.desc}>{project.description}</p>
-        )}
+        <h2>{project.localName}</h2>
+        {project.localName && <p className={styles.desc}>{project.name}</p>}
       </header>
 
-      {/* suppressHydrationWarning прибирає можливий mismatch */}
+      {/* suppressHydrationWarning removes a possible mismatch */}
       {formattedDate && (
         <p className={styles.updated} suppressHydrationWarning>
           Last updated: {formattedDate}
@@ -59,7 +56,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         )}
       </div>
 
-      {/* suppressHydrationWarning усуває різницю між SSR і клієнтом у <details> */}
+      {/* suppressHydrationWarning eliminates the difference between SSR and client in <details> */}
       <details className={styles.readme} suppressHydrationWarning>
         <summary>README Preview</summary>
         <pre>{readmePreview}</pre>

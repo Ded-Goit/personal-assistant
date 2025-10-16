@@ -1,3 +1,5 @@
+import { repositories } from "@/constant/repo";
+
 export interface GitHubProject {
   id: number;
   name: string;
@@ -7,6 +9,7 @@ export interface GitHubProject {
   homepage?: string | null;
   updated_at: string;
   readme?: string;
+  localName?: string;
 }
 
 export async function fetchGitHubRepo(
@@ -15,7 +18,7 @@ export async function fetchGitHubRepo(
 ): Promise<GitHubProject> {
   const repoRes = await fetch(`https://api.github.com/repos/${owner}/${repo}`, {
     headers: { Accept: "application/vnd.github+json" },
-    next: { revalidate: 3600 }, // ISR кешування для Next.js
+    next: { revalidate: 3600 },
   });
 
   if (!repoRes.ok) {
@@ -36,8 +39,12 @@ export async function fetchGitHubRepo(
     ? await readmeRes.text()
     : "No README available.";
 
-  // 🧠 ВАЖЛИВО: не форматуємо дату через locale, щоб не було SSR розбіжностей!
-  // Замість цього лишаємо ISO, або форматуй лише на клієнті.
+  const localRepo = repositories.find(
+    (r) =>
+      r.owner.toLowerCase() === owner.toLowerCase() &&
+      r.repo.toLowerCase() === repo.toLowerCase()
+  );
+
   return {
     id: repoData.id,
     name: repoData.name,
@@ -45,7 +52,8 @@ export async function fetchGitHubRepo(
     html_url: repoData.html_url,
     homepage: repoData.homepage,
     description: repoData.description || "No description provided.",
-    updated_at: repoData.updated_at, // ← залишаємо в ISO форматі
+    updated_at: repoData.updated_at,
     readme: readmeText,
+    localName: localRepo ? localRepo.name : undefined,
   };
 }
