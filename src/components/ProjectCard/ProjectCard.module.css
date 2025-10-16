@@ -1,0 +1,53 @@
+.card {
+  background: var(--color-bg-secondary);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.desc {
+  margin: 0.5rem 0 1rem;
+  color: var(--color-text-secondary);
+}
+
+.updated {
+  font-size: 0.9rem;
+  color: var(--color-text-tertiary);
+}
+
+.links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.link {
+  color: var(--color-accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.link:hover {
+  color: var(--color-accent-hover);
+}
+
+.readme {
+  margin-top: 1rem;
+}
+
+.readme pre {
+  background: var(--color-bg-tertiary);
+  padding: 1rem;
+  border-radius: var(--radius);
+  overflow-x: auto;
+  max-height: 300px;
+  font-size: 0.85rem;
+}
