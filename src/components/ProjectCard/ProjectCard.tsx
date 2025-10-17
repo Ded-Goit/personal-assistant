@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState, useMemo } from "react";
 import styles from "./ProjectCard.module.css";
 import { GitHubProject } from "@/lib/github";
+import { CgChevronRight } from "react-icons/cg";
 
 interface ProjectCardProps {
   project: GitHubProject;
@@ -46,19 +47,22 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
       <div className={styles.links}>
         <Link href={project.html_url} target="_blank" className={styles.link}>
-          GitHub →
+          GitHub ⟶
         </Link>
 
         {project.homepage && (
           <Link href={project.homepage} target="_blank" className={styles.link}>
-            Live Demo →
+            Live Demo ⟶
           </Link>
         )}
       </div>
 
       {/* suppressHydrationWarning eliminates the difference between SSR and client in <details> */}
       <details className={styles.readme} suppressHydrationWarning>
-        <summary>README Preview</summary>
+        <summary>
+          <CgChevronRight className={styles.icon} aria-hidden="true" />
+          README Preview
+        </summary>
         <pre>{readmePreview}</pre>
       </details>
     </article>

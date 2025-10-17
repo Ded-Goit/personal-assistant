@@ -10,7 +10,7 @@ export default async function ProjectsPage() {
 
   return (
     <main className={styles.projectsPage}>
-      <h1>My Projects</h1>
+      <h1 className={styles.elegant}>My Projects</h1>
       <div className={styles.grid}>
         {projects.map((project) => (
           <ProjectCard key={project.name} project={project} />

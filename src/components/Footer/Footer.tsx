@@ -1,42 +1,90 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import styles from './Footer.module.css';
-import { subscribe } from '@/constant/constant';
+import Link from "next/link";
+import styles from "./Footer.module.css";
+import { subscribe } from "@/constant/constant";
 import {
   RiLinkedinFill,
   RiTelegramFill,
   RiYoutubeFill,
   RiInstagramFill,
   RiFacebookFill,
-} from 'react-icons/ri';
-import Logo from '@/Logo/Logoded';
+} from "react-icons/ri";
+import { FiFileText } from "react-icons/fi";
+import { GoShieldCheck } from "react-icons/go";
+import { FaCookie } from "react-icons/fa";
 
-export default function Footer() {  
-
+export default function Footer() {
   return (
     <footer className={styles.footer}>
-      <div className={styles.container}>      
-
+      <div className={styles.container}>
         {/* Logo and legal */}
         <div className={styles.linksWrapper}>
-
-          {/* Logo */}
-          <Logo width={64} height={32} />        
+          <p className={styles.text}>
+            &copy; {new Date().getFullYear()} Personal Assistant |{" "}
+            <Link
+              href="https://github.com/Ded-Goit"
+              className={styles.link}
+              target="_blank"
+            >
+              Creativ Studio 𝔻𝔼𝔻 Production
+            </Link>
+          </p>
 
           {/* Legal */}
           <div className={styles.navigation}>
             <p className={styles.subtitle}>Legal</p>
             <nav className={styles.legalNav}>
-              <Link href="/terms-and-conditions" className={styles.navlink}>
-                Terms
-              </Link>
-              <Link href="/privacy-policy" className={styles.navlink}>
-                Privacy Policy
-              </Link>
-              <Link href="/cookies-policy" className={styles.navlink}>
-                Cookies
-              </Link>
+              <svg
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlnsXlink="http://www.w3.org/1999/xlink"
+                viewBox="0 0 300 300"
+                width="0"
+                height="0"
+              >
+                <defs>
+                  <path
+                    id="circlePath"
+                    d="M 150, 150 m -50, 0 a 50,50 0 0,1 100,0 a 50,50 0 0,1 -100,0"
+                  />
+                </defs>
+              </svg>
+
+              {[
+                {
+                  href: "/terms-and-conditions",
+                  label: "Terms",
+                  icon: <FiFileText />,
+                },
+                {
+                  href: "/privacy-policy",
+                  label: "Privacy",
+                  icon: <GoShieldCheck />,
+                },
+                {
+                  href: "/cookies-policy",
+                  label: "Cookies",
+                  icon: <FaCookie />,
+                },
+              ].map(({ href, label, icon }) => (
+                <Link key={href} href={href} className={styles.navlink}>
+                  <span>{label}</span>
+                  <span className={styles.icon}>{icon}</span>
+                  <svg viewBox="0 0 300 300" aria-hidden="true">
+                    <g>
+                      <text fill="currentColor">
+                        <textPath xlinkHref="#circlePath">{label}</textPath>
+                      </text>
+                      <text fill="currentColor">
+                        <textPath xlinkHref="#circlePath" startOffset="50%">
+                          {label}
+                        </textPath>
+                      </text>
+                    </g>
+                  </svg>
+                </Link>
+              ))}
             </nav>
           </div>
 
@@ -98,18 +146,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-
-      {/* footer */}
-      <p className={styles.text}>
-        &copy; {new Date().getFullYear()} Personal Assistant |{' '}
-        <Link
-          href="https://github.com/Ded-Goit"
-          className={styles.link}
-          target="_blank"
-        >
-          Creativ Studio DED Production
-        </Link>
-      </p>
     </footer>
   );
 }
