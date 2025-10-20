@@ -19,8 +19,17 @@ interface Course {
   hours: string;
   summary: string;
   topics: string[];
-  icon: React.ReactNode;
+  iconName: string;
 }
+
+const iconMap: Record<string, React.ReactNode> = {
+  htmlcss: <SiHtml5 color="#E34F26" size={32} />,
+  javascript: <SiJavascript color="#F7DF1E" size={32} />,
+  react: <SiReact color="#61DAFB" size={32} />,
+  nextjs: <SiNextdotjs color="#333333" size={32} />,
+  nodejs: <SiNodedotjs color="#339933" size={32} />,
+  career: <FaUserTie color="#0A66C2" size={32} />,
+};
 
 const courses: Course[] = [
   {
@@ -36,7 +45,7 @@ const courses: Course[] = [
       "Block Model, Flexbox, Forms",
       "Responsive Design",
     ],
-    icon: <SiHtml5 color="#E34F26" size={32} />,
+    iconName: "htmlcss",
   },
   {
     id: "javascript",
@@ -51,7 +60,7 @@ const courses: Course[] = [
       "Async/Await, Promises, HTTP Requests",
       "DOM & Events, Local Storage, Bundlers",
     ],
-    icon: <SiJavascript color="#F7DF1E" size={32} />,
+    iconName: "javascript",
   },
   {
     id: "react",
@@ -66,7 +75,7 @@ const courses: Course[] = [
       "Forms and Effects",
       "TanStack Query and Formik",
     ],
-    icon: <SiReact color="#61DAFB" size={32} />,
+    iconName: "react",
   },
   {
     id: "nextjs",
@@ -80,7 +89,7 @@ const courses: Course[] = [
       "Performance Optimization",
       "Authentication & Deployment",
     ],
-    icon: <SiNextdotjs color="#333333" size={32} />,
+    iconName: "nextjs",
   },
   {
     id: "nodejs",
@@ -93,7 +102,7 @@ const courses: Course[] = [
       "REST API, Validation, Auth",
       "Docker, Email, Swagger, OpenAPI",
     ],
-    icon: <SiNodedotjs color="#339933" size={32} />,
+    iconName: "nodejs",
   },
   {
     id: "career",
@@ -103,7 +112,7 @@ const courses: Course[] = [
     summary:
       "Professional communication, teamwork, and personal branding essentials.",
     topics: ["Soft Skills, CV, Interview Preparation, Career Growth"],
-    icon: <FaUserTie color="#0A66C2" size={32} />,
+    iconName: "career",
   },
 ];
 
@@ -116,7 +125,6 @@ export default function SupplementPage() {
       </p>
 
       <div className={styles.timeline}>
-        {/*  Анімована вертикальна лінія */}
         <div className={styles.lineWrapper}>
           <motion.span
             className={styles.line}
@@ -155,7 +163,7 @@ export default function SupplementPage() {
             viewport={{ once: true, amount: 0.3 }}
           >
             <div className={styles.content}>
-              <div className={styles.icon}>{course.icon}</div>
+              <div className={styles.icon}>{iconMap[course.iconName]}</div>
               <h2 className={styles.title}>{course.title}</h2>
               <p className={styles.hours}>{course.hours}</p>
               <p className={styles.summary}>{course.summary}</p>
