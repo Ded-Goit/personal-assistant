@@ -15,10 +15,15 @@ import { GoShieldCheck } from "react-icons/go";
 import { FaCookie } from "react-icons/fa";
 
 export default function Footer() {
+  const legalItems = [
+    { href: "/terms-and-conditions", label: "Terms", icon: <FiFileText /> },
+    { href: "/privacy-policy", label: "Privacy", icon: <GoShieldCheck /> },
+    { href: "/cookies-policy", label: "Cookies", icon: <FaCookie /> },
+  ];
+
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
-        {/* Logo and legal */}
         <div className={styles.linksWrapper}>
           <p className={styles.text}>
             &copy; {new Date().getFullYear()} Personal Assistant |{" "}
@@ -31,64 +36,55 @@ export default function Footer() {
             </Link>
           </p>
 
-          {/* Legal */}
           <div className={styles.navigation}>
             <p className={styles.subtitle}>Legal</p>
-            <nav className={styles.legalNav}>
-              <svg
-                version="1.1"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlnsXlink="http://www.w3.org/1999/xlink"
-                viewBox="0 0 300 300"
-                width="0"
-                height="0"
-              >
-                <defs>
-                  <path
-                    id="circlePath"
-                    d="M 150, 150 m -50, 0 a 50,50 0 0,1 100,0 a 50,50 0 0,1 -100,0"
-                  />
-                </defs>
-              </svg>
 
-              {[
-                {
-                  href: "/terms-and-conditions",
-                  label: "Terms",
-                  icon: <FiFileText />,
-                },
-                {
-                  href: "/privacy-policy",
-                  label: "Privacy",
-                  icon: <GoShieldCheck />,
-                },
-                {
-                  href: "/cookies-policy",
-                  label: "Cookies",
-                  icon: <FaCookie />,
-                },
-              ].map(({ href, label, icon }) => (
-                <Link key={href} href={href} className={styles.navlink}>
-                  <span>{label}</span>
-                  <span className={styles.icon}>{icon}</span>
-                  <svg viewBox="0 0 300 300" aria-hidden="true">
-                    <g>
-                      <text fill="currentColor">
-                        <textPath xlinkHref="#circlePath">{label}</textPath>
-                      </text>
-                      <text fill="currentColor">
-                        <textPath xlinkHref="#circlePath" startOffset="50%">
-                          {label}
-                        </textPath>
-                      </text>
-                    </g>
-                  </svg>
-                </Link>
-              ))}
+            <nav className={styles.legalNav}>
+              {legalItems.map(({ href, label, icon }) => {
+                // make a unique id for path (to avoid collisions)
+                const pathId = `circlePath-${label.replace(/\s+/g, "-").toLowerCase()}`;
+                return (
+                  <Link key={href} href={href} className={styles.navlink}>
+                    {/* label — visible by default */}
+                    <span className={styles.label}>{label}</span>
+
+                    {/* icon — hidden by default */}
+                    <span className={styles.icon} aria-hidden="true">
+                      {icon}
+                    </span>
+
+                    {/* svg with path defined inside for textPath */}
+                    <svg
+                      className={styles.rotSvg}
+                      viewBox="0 0 100 100"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <defs>
+                        <path
+                          id={pathId}
+                          d="M50,50 m-32,0 a32,32 0 1,1 64,0 a32,32 0 1,1 -64,0"
+                        />
+                      </defs>
+
+                      <g>
+                        <text
+                          className={styles.circleText}
+                          textLength="200%"
+                          lengthAdjust="spacingAndGlyphs"
+                        >
+                          <textPath href={`#${pathId}`} startOffset="0%">
+                            {` ${label} • ${label} • ${label} • ${label} • `}
+                          </textPath>
+                        </text>
+                      </g>
+                    </svg>
+                  </Link>
+                );
+              })}
             </nav>
           </div>
 
-          {/* Social networks */}
           <div className={styles.navigation}>
             <p className={styles.subtitle}>Subscribe</p>
             <div className={styles.socials}>

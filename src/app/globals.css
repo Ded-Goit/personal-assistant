@@ -37,6 +37,8 @@
   --color-selection-text: #fff;
   --color-selection-bg: #6c63ff;
   --color-social: #6ab1d7;
+  --color-mini-accent: #0bff01;
+
   --box-shadow: rgba(0, 0, 0, 0.7);
 
   color-scheme: light;
@@ -169,7 +171,7 @@ section {
 
 /* ========= MEDIA QUERIES ========= */
 
-/* Мобільні */
+/* Mobile */
 @media (max-width: 767px) {
   .container {
     width: 94%;
@@ -177,6 +179,7 @@ section {
   }
 
   h1 {
+    font-weight: var(--font-weight-black);
     font-size: 1.8rem;
   }
 
@@ -185,7 +188,7 @@ section {
   }
 }
 
-/* Планшети */
+/* Tablets */
 @media (min-width: 768px) and (max-width: 1439px) {
   :root {
     --font-size-base: 17px;
@@ -201,7 +204,7 @@ section {
   }
 }
 
-/* Десктопи */
+/* Desktops */
 @media (min-width: 1440px) {
   :root {
     --font-size-base: 18px;

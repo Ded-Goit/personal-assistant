@@ -47,12 +47,12 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
       <div className={styles.links}>
         <Link href={project.html_url} target="_blank" className={styles.link}>
-          GitHub ⟶
+          GitHub <span className={styles.linksspan}>⟶</span>
         </Link>
 
         {project.homepage && (
           <Link href={project.homepage} target="_blank" className={styles.link}>
-            Live Demo ⟶
+            Live Demo <span className={styles.linksspan}>⟶</span>
           </Link>
         )}
       </div>

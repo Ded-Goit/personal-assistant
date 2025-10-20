@@ -42,28 +42,76 @@
   color: var(--color-accent-hover);
 }
 
+/* READ ME BLOCK */
+.readme {
+  margin-top: 1rem;
+}
+
 .readme summary {
   list-style: none;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  user-select: none;
+  transition: color 0.25s ease;
 }
 
-/* Прибрати стандартний браузерний disclosure marker */
+.readme summary:hover {
+  color: var(--color-accent-hover);
+}
+
+/* Remove standard browser disclosure marker */
 .readme summary::-webkit-details-marker {
   display: none;
 }
 
-/* Стиль SVG-іконки */
-.icon {
+/* Arrow icon */
+.icon,
+.linksspan {
   width: 1rem;
   height: 1rem;
-  color: #0bff01; /* 🔸 колір трикутника / стрілки */
+  color: var(--color-mini-accent);
   transition: transform 0.25s ease;
 }
 
-/* Анімація при відкритті details */
+/* Animation when opening details */
 .readme[open] .icon {
   transform: rotate(90deg);
+}
+
+.readme pre {
+  margin-top: 0.5rem;
+  max-width: 100%;
+  max-height: 240px; /* height limit */
+  overflow-x: auto;
+  overflow-y: auto;
+  white-space: pre-wrap; /* wrap long lines */
+  word-break: break-word; /* break long words */
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 0.75rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.85rem;
+  line-height: 1.45;
+  box-shadow: 2px 4px 8px 0px var(--box-shadow) inset;
+  -webkit-box-shadow: 2px 4px 8px 0px var(--box-shadow) inset;
+  -moz-box-shadow: 2px 4px 8px 0px var(--box-shadow) inset;
+  animation: fadeIn 0.25s ease-in-out;
+}
+
+/* Smooth content appearance */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
