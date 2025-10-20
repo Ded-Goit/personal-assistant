@@ -3,6 +3,24 @@
   padding: 2rem 0;
 }
 
+/* Timeline wrapper */
+.timeline {
+  position: relative;
+  margin: 2rem auto;
+  max-width: 900px;
+}
+
+/* Vertical line (for larger screens, hidden by default) */
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 8px; /* mobile line on the left */
+  width: 3px;
+  background: var(--color-mini-accent);
+}
+
 /* Card base (mobile-first) */
 .card {
   position: relative;
@@ -91,6 +109,11 @@
 
 /* ─────────────── DESKTOP (min-width: 768px) ─────────────── */
 @media (min-width: 768px) {
+  .timeline::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
   .card {
     width: 45%;
     margin: 2rem 0;
@@ -112,62 +135,5 @@
 
   .right::before {
     left: -9px;
-  }
-}
-/* базова обгортка timeline — вже без ::before */
-.timeline {
-  position: relative;
-  margin: 2rem auto;
-  max-width: 900px;
-}
-
-/* Обрізаюча обгортка — вона ховає glow поза межами */
-.lineWrapper {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 8px; /* mobile-first */
-  width: 6px;
-  overflow: hidden; /* критично: обрізає glow за межами wrapper */
-  z-index: 0;
-}
-
-/* Саме тіло лінії — його масштабуємо через framer-motion */
-.line {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%; /* заповнює wrapper, але scaleY буде змінювати видимість */
-  background: linear-gradient(180deg, #04d9ff, #39ff14, #faed27, #fe019a);
-  background-size: 400% 400%;
-  animation: gradientFlow 4s linear infinite;
-  box-shadow:
-    0 0 10px rgba(97, 218, 251, 0.6),
-    0 0 20px rgba(97, 218, 251, 0.35),
-    0 0 30px rgba(51, 153, 51, 0.25);
-  transform-origin: top; /* важливо */
-  border-radius: 3px;
-  z-index: 0;
-}
-
-/* gradient animation */
-@keyframes gradientFlow {
-  0% {
-    background-position: 0% 0%;
-  }
-  50% {
-    background-position: 100% 100%;
-  }
-  100% {
-    background-position: 0% 0%;
-  }
-}
-
-/* Desktop: центруємо лінію */
-@media (min-width: 768px) {
-  .lineWrapper {
-    left: 50%;
-    transform: translateX(-50%);
   }
 }
