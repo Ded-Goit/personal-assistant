@@ -1,0 +1,173 @@
+.timelineSection {
+  position: relative;
+  padding: 2rem 0;
+}
+
+/* Card base (mobile-first) */
+.card {
+  position: relative;
+  display: block;
+  width: 90%;
+  margin: 1.5rem 0 1.5rem 2rem;
+  padding: 1.8rem;
+  background: var(--color-bg-secondary);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-over);
+  text-decoration: none;
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+/* Card hover */
+.card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 8px 25px rgba(97, 218, 251, 0.3);
+}
+
+.card:hover .icon svg {
+  filter: drop-shadow(0 0 10px rgba(97, 218, 251, 0.8));
+  transform: scale(1.15);
+}
+
+/* Dot for each card */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 2rem;
+  left: -25px;
+  width: 18px;
+  height: 18px;
+  background: var(--color-accent);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px var(--color-bg-primary);
+}
+
+/* Card content */
+.content {
+  text-align: left;
+}
+
+.title {
+  color: var(--color-accent);
+  font-size: 1.3rem;
+  margin-bottom: 0.4rem;
+}
+
+.hours {
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.summary {
+  color: var(--color-text-tertiary);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.topics {
+  list-style: disc;
+  padding-left: 1.2rem;
+  margin: 0;
+}
+
+.topics li {
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 0.3rem;
+}
+
+/* Icon style */
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+  box-shadow: var(--shadow-over);
+}
+
+/* ─────────────── DESKTOP (min-width: 768px) ─────────────── */
+@media (min-width: 768px) {
+  .card {
+    width: 45%;
+    margin: 2rem 0;
+  }
+
+  /* Alternating layout */
+  .left {
+    left: 0;
+  }
+
+  .left::before {
+    right: -9px;
+    left: auto;
+  }
+
+  .right {
+    left: 55%;
+  }
+
+  .right::before {
+    left: -9px;
+  }
+}
+/* базова обгортка timeline — вже без ::before */
+.timeline {
+  position: relative;
+  margin: 2rem auto;
+  max-width: 900px;
+}
+
+/* Обрізаюча обгортка — вона ховає glow поза межами */
+.lineWrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 8px; /* mobile-first */
+  width: 6px;
+  overflow: hidden; /* критично: обрізає glow за межами wrapper */
+  z-index: 0;
+}
+
+/* Саме тіло лінії — його масштабуємо через framer-motion */
+.line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* заповнює wrapper, але scaleY буде змінювати видимість */
+  background: linear-gradient(180deg, #04d9ff, #39ff14, #faed27, #fe019a);
+  background-size: 400% 400%;
+  animation: gradientFlow 4s linear infinite;
+  box-shadow:
+    0 0 10px rgba(97, 218, 251, 0.6),
+    0 0 20px rgba(97, 218, 251, 0.35),
+    0 0 30px rgba(51, 153, 51, 0.25);
+  transform-origin: top; /* важливо */
+  border-radius: 3px;
+  z-index: 0;
+}
+
+/* gradient animation */
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+/* Desktop: центруємо лінію */
+@media (min-width: 768px) {
+  .lineWrapper {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

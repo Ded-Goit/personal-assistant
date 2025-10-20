@@ -14,11 +14,6 @@
   --font-weight-black: 900;
   --line-height-base: 1.6;
 
-  /* Radius & Shadow */
-  --radius: 12px;
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
-  --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.1);
-
   /* Animation */
   --transition-fast: 0.25s ease-in-out;
   --transition-slow: 0.4s ease;
@@ -40,6 +35,13 @@
   --color-mini-accent: #0bff01;
 
   --box-shadow: rgba(0, 0, 0, 0.7);
+
+  /* Radius & Shadow */
+  --radius: 12px;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.1);
+  --shadow-over: 8px 8px 16px 0px var(--box-shadow);
+  --shadow-concave: 8px 8px 16px 0px var(--box-shadow) inset;
 
   color-scheme: light;
 }

@@ -9,11 +9,11 @@ export default function HomePage() {
           <span className={styles.highlight}>Data Analyst</span>
         </h1>
         <p className={styles.subtitle}>
-          I create modern web applications, analytical dashboards and tools that
-          help people work more efficiently.
+          I build modern web applications, analytical dashboards, and recommend
+          tools that help people work more efficiently.
         </p>
         <a href="/projects" className={styles.cta}>
-          View projects
+          View my projects
         </a>
       </div>
     </section>
