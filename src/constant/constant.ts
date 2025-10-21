@@ -1,6 +1,8 @@
 export const navLinks = [
   { href: "/", label: "Home" },
-  
+  { href: "/projects", label: "My projects" },
+  { href: "/resources", label: "My resources" },
+  { href: "/supplement", label: "My supplement" },
 ];
 export const logo = "/dedlogo.png";
 
@@ -15,5 +17,7 @@ export const subscribe = {
 
 export const navMobileLinks = [
   { href: "/", label: "Home" },
-  
+  { href: "/projects", label: "My projects" },
+  { href: "/resources", label: "My resources" },
+  { href: "/supplement", label: "My supplement" },
 ];
