@@ -1,4 +1,4 @@
-"use client";
+/*"use client";
 
 import { motion } from "framer-motion";
 import styles from "./page.module.css";
@@ -158,3 +158,4 @@ export default function SupplementPage() {
     </section>
   );
 }
+*/

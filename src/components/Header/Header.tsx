@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { HiMenu, HiX } from "react-icons/hi";
 import styles from "./Header.module.css";
-import Logo from "@/Logo/Logoded";
+import Logo from "@/components/Logo/Logoded";
 import { navLinks } from "@/constant/constant";
 import ThemeSwitcher from "@/components/ThemeSwitcher/ThemeSwitcher";
 
