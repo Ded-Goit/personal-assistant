@@ -1,6 +1,5 @@
-/*"use client";
+"use client";
 
-import { motion } from "framer-motion";
 import styles from "./page.module.css";
 import {
   SiHtml5,
@@ -10,6 +9,7 @@ import {
   SiReact,
 } from "react-icons/si";
 import { FaUserTie } from "react-icons/fa";
+
 interface Course {
   id: string;
   title: string;
@@ -19,6 +19,7 @@ interface Course {
   topics: string[];
   icon: React.ReactNode;
 }
+
 const courses: Course[] = [
   {
     id: "htmlcss",
@@ -109,37 +110,20 @@ export default function SupplementPage() {
     <section className={`${styles.timelineSection} container`}>
       <h1 className="text-center">My Fullstack Developer Learning Path</h1>
       <p className="text-center">
-        {" "}
-        Fullstack Developer Certificate Extension • More: 872 hours{" "}
+        Fullstack Developer Certificate Extension • More: 872 hours
       </p>
 
       <div className={styles.timeline}>
         {courses.map((course, index) => (
-          <motion.a
+          <a
             key={course.id}
             href={course.link}
             target="_blank"
             rel="noopener noreferrer"
             className={`${styles.card} ${
               index % 2 === 0 ? styles.left : styles.right
-            }`}
-            initial={{
-              opacity: 0,
-              x: index % 2 === 0 ? -200 : 200,
-              scale: 0.9,
-            }}
-            whileInView={{
-              opacity: 1,
-              x: 0,
-              scale: 1,
-            }}
-            transition={{
-              type: "spring",
-              stiffness: 100,
-              damping: 15,
-              delay: index * 0.1,
-            }}
-            viewport={{ once: true, amount: 0.3 }}
+            } ${styles.fadeIn}`}
+            style={{ animationDelay: `${index * 0.2}s` }}
           >
             <div className={styles.content}>
               <div className={styles.icon}>{course.icon}</div>
@@ -152,10 +136,9 @@ export default function SupplementPage() {
                 ))}
               </ul>
             </div>
-          </motion.a>
+          </a>
         ))}
       </div>
     </section>
   );
 }
-*/

@@ -27,7 +27,7 @@ export default function Footer() {
         <div className={styles.linksWrapper}>
           <p className={styles.text}>
             &copy; {new Date().getFullYear()} Personal Assistant |{" "}
-            <Link href="./" className={styles.link}>
+            <Link href="./supplement" className={styles.link}>
               Creativ Studio 𝔻𝔼𝔻 Production
             </Link>
           </p>
