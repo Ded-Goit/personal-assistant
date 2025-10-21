@@ -1,0 +1,338 @@
+[
+  {
+    "title": "Remove.bg",
+    "description": "Remove image background automatically.",
+    "icon": "Painting",
+    "link": "https://www.remove.bg/ru",
+    "category": "Painting"
+  },
+  {
+    "title": "Freecodecamp",
+    "description": "Our mission: to help people learn to code for free.",
+    "icon": "lightbulb",
+    "link": "https://www.freecodecamp.org/learn",
+    "category": "Course"
+  },
+  {
+    "title": "Learn to Learn (Coursera)",
+    "description": "Powerful mental tools to master difficult subjects.",
+    "icon": "lightbulb",
+    "link": "https://www.coursera.org/learn/learning-how-to-learn",
+    "category": "Course"
+  },
+  {
+    "title": "GoIT",
+    "description": "Library of free microcourses.",
+    "icon": "lightbulb",
+    "link": "https://allmarathons-lp-ua.goit.global/",
+    "category": "Course"
+  },
+  {
+    "title": "Prometheus",
+    "description": "Free Ukrainian online education.",
+    "icon": "lightbulb",
+    "link": "https://prometheus.org.ua",
+    "category": "Course"
+  },
+  {
+    "title": "Neoversity",
+    "description": "European higher education for new IT leaders.",
+    "icon": "lightbulb",
+    "link": "https://neoversity.com.ua/",
+    "category": "Course"
+  },
+  {
+    "title": "Brian Tracy Podcast",
+    "description": "Self-discipline and 'Eat That Frog'.",
+    "icon": "microphone",
+    "link": "https://personaldevelopmentmasterypodcast.com/episode/230-brian-tracy-on-self-discipline-and-eating-that-frog",
+    "category": "Podcast"
+  },
+  {
+    "title": "Noisli",
+    "description": "Create ambient soundscapes for focus and relaxation.",
+    "icon": "headphones",
+    "link": "https://www.noisli.com",
+    "category": "Sound / Focus"
+  },
+  {
+    "title": "Seinfeld Strategy",
+    "description": "Build your habit with daily execution.",
+    "icon": "calendar",
+    "link": "https://screenapp.io/blog/seinfeld-strategy-complete-guide",
+    "category": "Habit / Planning"
+  },
+  {
+    "title": "ClickUp Time Tracking",
+    "description": "Project time blocking and tracking.",
+    "icon": "timer",
+    "link": "https://clickup.com/lp/features/project-time-tracking",
+    "category": "Time Tracker"
+  },
+  {
+    "title": "Time Blocking vs Time Boxing",
+    "description": "Hubstaff blog on productivity techniques.",
+    "icon": "track",
+    "link": "https://hubstaff.com/blog/time-blocking-vs-time-boxing",
+    "category": "Habit / Planning"
+  },
+  {
+    "title": "Timeboxing with Clockify",
+    "description": "Practical guide to timeboxing tasks.",
+    "icon": "track",
+    "link": "https://clockify.me/timeboxing",
+    "category": "Habit / Planning"
+  },
+  {
+    "title": "Kanban Tool",
+    "description": "Apps for Kanban and task management.",
+    "icon": "tasks",
+    "link": "https://play.google.com/store/search?q=Kanban%20Tool&c=apps",
+    "category": "Task Manager"
+  },
+  {
+    "title": "Asana",
+    "description": "Popular project management tool.",
+    "icon": "tasks",
+    "link": "https://asana.com",
+    "category": "Task Manager"
+  },
+  {
+    "title": "Jira",
+    "description": "Project tracking by Atlassian.",
+    "icon": "tasks",
+    "link": "https://www.atlassian.com/software/jira",
+    "category": "Task Manager"
+  },
+  {
+    "title": "Clockify",
+    "description": "Time tracker and timesheet app.",
+    "icon": "timer",
+    "link": "https://clockify.me",
+    "category": "Time Tracker"
+  },
+  {
+    "title": "Notion",
+    "description": "All-in-one workspace for notes & projects.",
+    "icon": "notepad",
+    "link": "https://www.notion.com",
+    "category": "Task Manager"
+  },
+  {
+    "title": "Forest App",
+    "description": "Stay focused by growing virtual trees.",
+    "icon": "lightbulb",
+    "link": "https://play.google.com/store/apps/details?id=cc.forestapp",
+    "category": "Habit / Planning"
+  },
+  {
+    "title": "Freedom App",
+    "description": "Block distractions and focus deeply.",
+    "icon": "lightbulb",
+    "link": "https://play.google.com/store/apps/details?id=to.freedom.android2",
+    "category": "Habit / Planning"
+  },
+  {
+    "title": "Kaggle",
+    "description": "Practice data science with competitions and real datasets.",
+    "icon": "database",
+    "link": "https://www.kaggle.com/",
+    "category": "Dataset / SQL"
+  },
+  {
+    "title": "Google Dataset Search",
+    "description": "Find open datasets for your projects.",
+    "icon": "database",
+    "link": "https://datasetsearch.research.google.com/",
+    "category": "Dataset / SQL"
+  },
+  {
+    "title": "DataCamp",
+    "description": "Learn data analysis and Python interactively.",
+    "icon": "lightbulb",
+    "link": "https://www.datacamp.com/",
+    "category": "Course"
+  },
+  {
+    "title": "Awesome Public Datasets",
+    "description": "Huge curated list of free datasets.",
+    "icon": "database",
+    "link": "https://github.com/awesomedata/awesome-public-datasets",
+    "category": "Dataset / SQL"
+  },
+  {
+    "title": "Data.gov.ua",
+    "description": "Official open data portal of Ukraine.",
+    "icon": "database",
+    "link": "https://data.gov.ua/",
+    "category": "Dataset / SQL"
+  },
+  {
+    "title": "SQLBolt",
+    "description": "Interactive SQL lessons and exercises.",
+    "icon": "database",
+    "link": "https://sqlbolt.com/",
+    "category": "Dataset / SQL"
+  },
+  {
+    "title": "Tableau Public",
+    "description": "Free platform for sharing data visualizations.",
+    "icon": "chart",
+    "link": "https://public.tableau.com/",
+    "category": "Data Viz"
+  },
+  {
+    "title": "Towards Data Science",
+    "description": "Articles and tutorials on data science and analytics.",
+    "icon": "book",
+    "link": "https://towardsdatascience.com/",
+    "category": "Article / Summary"
+  },
+  {
+    "title": "React Bits",
+    "description": "Useful React snippets and patterns.",
+    "icon": "code",
+    "link": "https://www.reactbits.dev/",
+    "category": "Code / Dev"
+  },
+  {
+    "title": "Git by Bit",
+    "description": "Modern git commands explained.",
+    "icon": "git",
+    "link": "https://gitbybit.com/",
+    "category": "Code / Dev"
+  },
+  {
+    "title": "Database Build",
+    "description": "Database prototyping tool.",
+    "icon": "database",
+    "link": "https://database.build/",
+    "category": "Dataset / SQL"
+  },
+  {
+    "title": "SQLZoo",
+    "description": "Free interactive SQL tutorial.",
+    "icon": "database",
+    "link": "https://sqlzoo.net/wiki/SQL_Tutorial",
+    "category": "Dataset / SQL"
+  },
+  {
+    "title": "CodinGame",
+    "description": "Practice coding through games.",
+    "icon": "code",
+    "link": "http://codingame.com",
+    "category": "Code / Dev"
+  },
+  {
+    "title": "Eat That Frog (summary - Samuel Davies)",
+    "description": "Samuel Thomas Davies summary.",
+    "icon": "book",
+    "link": "https://www.samuelthomasdavies.com/book-summaries/business/eat-that-frog",
+    "category": "Article / Summary"
+  },
+  {
+    "title": "Learning how to learn",
+    "description": "Barbara Oakley's famous talk on how to learn effectively.",
+    "icon": "youtube",
+    "link": "https://www.youtube.com/watch?v=O96fE1E-rf8",
+    "category": "Video"
+  },
+  {
+    "title": "Eat That Frog (video)",
+    "description": "Brian Tracy's method explained on YouTube.",
+    "icon": "youtube",
+    "link": "https://www.youtube.com/watch?v=cvlUaP54w78",
+    "category": "Video"
+  },
+  {
+    "title": "MDN Web Docs",
+    "description": "Authoritative web documentation for HTML, CSS, and JS.",
+    "icon": "code",
+    "link": "https://developer.mozilla.org/",
+    "category": "Docs / Dev"
+  },
+  {
+    "title": "Frontend Mentor",
+    "description": "Practice front-end skills with real projects.",
+    "icon": "code",
+    "link": "https://www.frontendmentor.io/",
+    "category": "Code / Dev"
+  },
+  {
+    "title": "Fullstackopen",
+    "description": "Deep-dive course into modern fullstack development.",
+    "icon": "lightbulb",
+    "link": "https://fullstackopen.com/",
+    "category": "Course"
+  },
+  {
+    "title": "TypeScript Handbook",
+    "description": "Official guide for mastering TypeScript.",
+    "icon": "code",
+    "link": "https://www.typescriptlang.org/docs/",
+    "category": "Docs / Dev"
+  },
+  {
+    "title": "The Odin Project",
+    "description": "Free fullstack web development curriculum.",
+    "icon": "lightbulb",
+    "link": "https://www.theodinproject.com/",
+    "category": "Course"
+  },
+  {
+    "title": "LeetCode",
+    "description": "Platform for coding interview practice.",
+    "icon": "code",
+    "link": "https://leetcode.com/",
+    "category": "Code / Dev"
+  },
+  {
+    "title": "Dataquest",
+    "description": "Interactive data analysis and Python courses.",
+    "icon": "lightbulb",
+    "link": "https://www.dataquest.io/",
+    "category": "Course"
+  },
+  {
+    "title": "Google Cloud Skills Boost",
+    "description": "Learn cloud computing, BigQuery, and analytics tools.",
+    "icon": "lightbulb",
+    "link": "https://www.cloudskillsboost.google/",
+    "category": "Course"
+  },
+  {
+    "title": "Mode SQL Tutorials",
+    "description": "Advanced SQL and analytics case studies.",
+    "icon": "database",
+    "link": "https://mode.com/sql-tutorial/",
+    "category": "Dataset / SQL"
+  },
+  {
+    "title": "Observable",
+    "description": "Create interactive data visualizations with JS.",
+    "icon": "chart",
+    "link": "https://observablehq.com/",
+    "category": "Data Viz"
+  },
+  {
+    "title": "Next.js Documentation",
+    "description": "Official Next.js docs with SSR, CSR, and API examples.",
+    "icon": "code",
+    "link": "https://nextjs.org/docs",
+    "category": "Docs / Dev"
+  },
+  {
+    "title": "React.dev",
+    "description": "Official React documentation and tutorials.",
+    "icon": "code",
+    "link": "https://react.dev/",
+    "category": "Docs / Dev"
+  },
+  {
+    "title": "W3C Web Accessibility",
+    "description": "Guidelines for accessible web applications.",
+    "icon": "book",
+    "link": "https://www.w3.org/WAI/",
+    "category": "Article / Summary"
+  }
+]
