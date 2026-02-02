@@ -1,5 +1,5 @@
 "use client";
-
+/*edit form variant*/
 import { useState } from "react";
 import styles from "./ResourceForm.module.css";
 
@@ -23,7 +23,7 @@ export default function ResourceForm() {
   const [resources, setResources] = useState<Resource[]>([]);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
