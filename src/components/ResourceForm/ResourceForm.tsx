@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useId } from "react";
 import styles from "./ResourceForm.module.css";
 
 interface Resource {
@@ -12,6 +12,13 @@ interface Resource {
 }
 
 export default function ResourceForm() {
+  const titleId = useId();
+  const descriptionId = useId();
+  const iconId = useId();
+  const linkId = useId();
+  const categoryId = useId();
+  const errorId = useId();
+
   const [formData, setFormData] = useState<Resource>({
     title: "",
     description: "",
@@ -21,19 +28,24 @@ export default function ResourceForm() {
   });
 
   const [resources, setResources] = useState<Resource[]>([]);
+  const [error, setError] = useState<string>("");
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    setError("");
   };
 
-  const handleAdd = () => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
     if (!formData.title || !formData.link) {
-      alert("Please fill at least Title and Link");
+      setError("Title and Link are required fields.");
       return;
     }
+
     setResources((prev) => [...prev, formData]);
     setFormData({
       title: "",
@@ -57,22 +69,27 @@ export default function ResourceForm() {
   };
 
   return (
-    <div className={styles.formWrapper}>
+    <form className={styles.formWrapper} onSubmit={handleSubmit} noValidate>
       <h2>Add new resource</h2>
 
       <div className={styles.formGroup}>
-        <label>Title</label>
+        <label htmlFor={titleId}>Title *</label>
         <input
+          id={titleId}
           name="title"
           value={formData.title}
           onChange={handleChange}
           placeholder="e.g. CSS Box Shadow Generator"
+          required
+          aria-invalid={!!error && !formData.title}
+          aria-describedby={error ? errorId : undefined}
         />
       </div>
 
       <div className={styles.formGroup}>
-        <label>Description</label>
+        <label htmlFor={descriptionId}>Description</label>
         <textarea
+          id={descriptionId}
           name="description"
           value={formData.description}
           onChange={handleChange}
@@ -81,8 +98,9 @@ export default function ResourceForm() {
       </div>
 
       <div className={styles.formGroup}>
-        <label>Icon (key)</label>
+        <label htmlFor={iconId}>Icon (key)</label>
         <input
+          id={iconId}
           name="icon"
           value={formData.icon}
           onChange={handleChange}
@@ -91,18 +109,24 @@ export default function ResourceForm() {
       </div>
 
       <div className={styles.formGroup}>
-        <label>Link</label>
+        <label htmlFor={linkId}>Link *</label>
         <input
+          id={linkId}
           name="link"
+          type="url"
           value={formData.link}
           onChange={handleChange}
           placeholder="https://example.com"
+          required
+          aria-invalid={!!error && !formData.link}
+          aria-describedby={error ? errorId : undefined}
         />
       </div>
 
       <div className={styles.formGroup}>
-        <label>Category</label>
+        <label htmlFor={categoryId}>Category</label>
         <input
+          id={categoryId}
           name="category"
           value={formData.category}
           onChange={handleChange}
@@ -110,7 +134,13 @@ export default function ResourceForm() {
         />
       </div>
 
-      <button onClick={handleAdd}>Add Resource</button>
+      {error && (
+        <p id={errorId} role="alert" className={styles.error}>
+          {error}
+        </p>
+      )}
+
+      <button type="submit">Add Resource</button>
 
       {resources.length > 0 && (
         <>
@@ -127,11 +157,15 @@ export default function ResourceForm() {
             ))}
           </ul>
 
-          <button className={styles.exportBtn} onClick={exportJSON}>
+          <button
+            type="button"
+            className={styles.exportBtn}
+            onClick={exportJSON}
+          >
             Export JSON
           </button>
         </>
       )}
-    </div>
+    </form>
   );
 }
